@@ -19,7 +19,7 @@ namespace FreshFishWebsite.Models
         public List<PoolState> PoolStates { get; set; } = new();
         public List<Feeding> Feeding { get; set; } = new();
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        public int FishQuantly
+        public int? FishQuantly
         {
             get { return MaxProductsKg - RemainingSpaceForProducts; }
             private set {}
@@ -31,7 +31,7 @@ namespace FreshFishWebsite.Models
         {
             get
             {
-                var currentDate = DateTime.Now; // DateTime.Parse(DateTime.Now.ToString("MM/dd/yyyy"));
+                var currentDate = DateTime.Now; 
                 _isFishFed = DateTime.Compare(DateTimeFeedingExpired, currentDate) > 0;
                 return _isFishFed;
             }

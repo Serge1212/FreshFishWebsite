@@ -166,7 +166,7 @@ namespace FreshFishWebsite.Controllers
             {
                 StorageNumber = storage.StorageNumber,
                 Address = storage.Address,
-                StorageAdminEmail = storage.StorageAdmin.Email
+                StorageAdminEmail = storage?.StorageAdmin?.Email
             };
             if (storage == null)
             {

@@ -5,8 +5,8 @@
 }
 
 <div class="jumbotron bg-light">
-        <p class="text-body h3 mx-3 my-2">Користувач: @Model.Name @Model.Surname </p>
-        <p class="text-body h3 mx-3 my-2">Email: @Model.Email </p>
+        <p class="text-body h3 mx-3 my-2">Користувач: @Model?.Name @Model?.Surname </p>
+        <p class="text-body h3 mx-3 my-2">Email: @Model?.Email </p>
         <a class="navbar-brand mx-2 my-2 nav-link" asp-controller="Home" asp-action="Index">На головну сторінку</a>
         <form class="mx-2 my-2" method="post" asp-controller="Account" asp-action="Logout">
             <input type="submit" class="btn btn-danger" value="Вийти" />
