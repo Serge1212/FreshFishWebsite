@@ -11,16 +11,10 @@ namespace FreshFishWebsite.Controllers
 {
     public class HomeController : Controller
     {
-        private UserManager<User> _userManager;
-        private SignInManager<User> _signInManager;
         private readonly FreshFishDbContext _context;
 
-        public HomeController(UserManager<User> userManager,
-            SignInManager<User> signInManager,
-            FreshFishDbContext context)
+        public HomeController(FreshFishDbContext context)
         {
-            _userManager = userManager;
-            _signInManager = signInManager;
             _context = context;
         }
 

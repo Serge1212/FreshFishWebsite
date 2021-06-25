@@ -2,9 +2,6 @@
 let poolId = $("#poolIdInput").val();
 console.log(poolId);
 var data;
-var nitrogenArray;
-var temperatureArray;
-var waterLevelArray;
 $.ajax({
     type: "GET",
     url: `Pool/GetDataForStatistics?poolId=${poolId}`,

@@ -14,7 +14,12 @@
     </div>
     <div class="form-group">
         <label asp-for="ExpireFeedDate" class="control-label">Дата наступного годування</label>
-        <input type="datetime-local" asp-for="ExpireFeedDate" class="form-control" />
+                        <div class='input-group date'>
+                            <input type='datetime' class="form-control" asp-for="ExpireFeedDate"/>
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
     </div>
     <div class="form-group">
         <label asp-for="Temperature" class="control-label">Температура у басейні</label>

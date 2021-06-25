@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System;
 
 namespace FreshFishWebsite
 {
@@ -33,8 +34,16 @@ namespace FreshFishWebsite
             services.AddScoped<IProductInPoolRepository, ProductInPoolRepository>();
             services.AddScoped<IOrderRepository, OrderRepository>();
 
-            services.AddDbContext<FreshFishDbContext>(options =>
-                   options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Development")
+            {
+                services.AddDbContext<FreshFishDbContext>(options =>
+                   options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
+            }
+            else
+            {
+                services.AddDbContext<FreshFishDbContext>(options =>
+               options.UseNpgsql(Configuration.GetConnectionString("RemoteConnection")));
+            }
 
             services.AddIdentity<User, IdentityRole>(options =>
             {
